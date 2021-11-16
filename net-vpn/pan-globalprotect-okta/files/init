@@ -1,0 +1,23 @@
+#!/sbin/openrc-run
+
+extra_started_commands="reload"
+supervisor="supervise-daemon"
+command="/usr/bin/${RC_SVCNAME}"
+command_args="/etc/${RC_SVCNAME}.conf"
+pidfile="/run/${RC_SVCNAME}.pid"
+description="PaloAlto Networks GlobalProtect VPN (integrated with OKTA) command-line client"
+
+depend() {
+	use logger
+}
+
+reload() {
+	ebegin "Reloading ${RC_SVCNAME}"
+	${supervisor} ${RC_SVCNAME} --signal HUP --pidfile "${pidfile}"
+	eend $?
+}
+
+stop_post() {
+	# Bug: https://github.com/OpenRC/openrc/issues/475
+	pkill openconnect
+}

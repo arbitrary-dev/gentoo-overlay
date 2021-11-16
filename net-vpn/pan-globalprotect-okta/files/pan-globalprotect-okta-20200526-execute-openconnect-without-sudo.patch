@@ -1,0 +1,15 @@
+# Execute openconnect without sudo.
+
+--- a/gp-okta.conf
++++ b/gp-okta.conf
+@@ -42,8 +42,8 @@
+ # --- execution
+ # "execute" (0/1) defines if openconnect (as specified with "openconnect_cmd"
+ # and "openconnect_args") is executed after OKTA authentication dance.
+-execute = 0
+-openconnect_cmd = sudo openconnect
++execute = 1
++openconnect_cmd = openconnect
+ openconnect_args =
+ # "openconnect_fmt" is manually specified format what to pipe to openconect.
+ # supports <cookie>, <username>, etc. other characters are provided as-is
