@@ -26,6 +26,7 @@ RDEPEND="${PYTHON_DEPS}
 
 PATCHES=(
 	"${FILESDIR}"/${P}-execute-openconnect-without-sudo.patch
+	"${FILESDIR}"/${P}-fix-new-okta-format.patch
 )
 
 src_install() {
