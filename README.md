@@ -1,5 +1,9 @@
 # Yet Another Gentoo Overlay
 
+## Packages
+
+1. [net-vpn/pan-globalprotect-okta](https://github.com/arthepsy/pan-globalprotect-okta)
+
 ## How to add?
 
 ```
@@ -12,11 +16,11 @@ sync-uri = https://github.com/arbitrary-dev/gentoo-overlay.git
 EOF
 ```
 
-## Packages
+## How to test?
 
-1. `net-vpn/pan-globalprotect-okta`
-   - Init script added
-   - Fixed new okta format issue [#34](https://github.com/arthepsy/pan-globalprotect-okta/pull/34)
+```
+# ebuild pan-globalprotect-okta-20220708.ebuild clean prepare
+```
 
 ## See also
 
