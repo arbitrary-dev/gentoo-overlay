@@ -8,7 +8,7 @@ DESCRIPTION="PaloAlto Networks GlobalProtect VPN (integrated with OKTA) command-
 HOMEPAGE="https://github.com/arthepsy/pan-globalprotect-okta"
 
 EGIT_REPO_URI="https://github.com/arthepsy/pan-globalprotect-okta.git"
-EGIT_COMMIT="a0b2ba6da7e19f187b536cfeefe6f9be44211d7f"
+EGIT_COMMIT="da771a46c6e21b15c1fe4a0325222097028cffc5"
 
 LICENSE="MIT"
 SLOT="0"
