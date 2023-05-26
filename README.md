@@ -2,15 +2,15 @@
 
 ## Packages
 
-1. [net-vpn/pan-globalprotect-okta](https://github.com/arthepsy/pan-globalprotect-okta)
+- [net-vpn/pan-globalprotect-okta](https://github.com/arthepsy/pan-globalprotect-okta)
 
 ## How to add?
 
 ```
-$ cat <<EOF >> /etc/portage/repos.conf
+# cat <<EOF >>/etc/portage/repos.conf
 
-[arbitrary-dev]
-location = /var/db/repos/arbitrary-dev
+[arbitrary]
+location = /var/db/repos/arbitrary
 sync-type = git
 sync-uri = https://github.com/arbitrary-dev/gentoo-overlay.git
 EOF
@@ -19,7 +19,7 @@ EOF
 ## How to test?
 
 ```
-# ebuild pan-globalprotect-okta-20220708.ebuild clean prepare
+# ebuild *.ebuild manifest clean prepare
 ```
 
 ## See also
