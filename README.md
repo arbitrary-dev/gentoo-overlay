@@ -3,6 +3,8 @@
 ## Packages
 
 - [net-vpn/pan-globalprotect-okta](https://github.com/arthepsy/pan-globalprotect-okta)
+- [www-client/luakit](https://github.com/luakit/luakit)
+  - added `~x86` keyword
 
 ## How to add?
 
