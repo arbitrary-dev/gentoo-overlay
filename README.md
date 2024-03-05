@@ -2,6 +2,8 @@
 
 ## Packages
 
+- [media-gfx/opentoonz](https://github.com/opentoonz/opentoonz)
+  - `v1.7.1` ebuild
 - [net-vpn/pan-globalprotect-okta](https://github.com/arthepsy/pan-globalprotect-okta)
 - [www-client/luakit](https://github.com/luakit/luakit)
   - added `~x86` keyword
