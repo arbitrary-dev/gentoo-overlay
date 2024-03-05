@@ -29,4 +29,5 @@ EOF
 ## See also
 
 1. [Basics of writing Ebuilds](https://wiki.gentoo.org/wiki/Basic_guide_to_write_Gentoo_Ebuilds)
+1. [Ebuild writing](https://devmanual.gentoo.org/ebuild-writing)
 1. [Patching](https://wiki.gentoo.org/wiki/Patches)
