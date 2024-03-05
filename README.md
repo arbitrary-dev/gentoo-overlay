@@ -13,8 +13,8 @@
 ```
 # cat <<EOF >>/etc/portage/repos.conf
 
-[arbitrary]
-location = /var/db/repos/arbitrary
+[arbitrary-dev]
+location = /var/db/repos/arbitrary-dev
 sync-type = git
 sync-uri = https://github.com/arbitrary-dev/gentoo-overlay.git
 EOF
