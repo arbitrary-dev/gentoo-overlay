@@ -11,7 +11,7 @@ DEBUG: Surface doesn't have a colorkey
 +	if (!SDL_HasColorKey(surf)) {
  		colorkey.a = SDL_ALPHA_OPAQUE; // no colorkey
  	} else {
-+ 	Uint32 key;
++		Uint32 key;
 +		SDL_GetColorKey(surf, &key);
  		if (truecolor)
  			SDL_GetRGBA(key, surf->format, &colorkey.r, &colorkey.g, &colorkey.b, &colorkey.a);
@@ -48,7 +48,7 @@ DEBUG: Surface doesn't have a colorkey
 +		Uint32 key;
 +		SDL_GetColorKey(image, &key);
  		SDL_SetColorKey(converted, SDL_TRUE, key);
-+  }
++	}
  	SDL_FreeSurface(image);
  	/* Disable palette conversion in future blits */
  	SDL_SetPaletteColors(converted->format->palette, blitFormat->format->palette->colors, 0, 256);
