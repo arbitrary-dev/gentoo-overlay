@@ -2,6 +2,9 @@
 
 ## Packages
 
+- [games-rpg/freedink](https://www.gnu.org/software/freedink)
+  - added workaround for [segfault](https://bugs.launchpad.net/ubuntu/+source/freedink/+bug/2009960)
+  - fixed misleading ["ERROR: Audio music decoder: no Ogg support"](https://bugzilla.redhat.com/show_bug.cgi?id=1782557) logging
 - [media-gfx/opentoonz](https://github.com/opentoonz/opentoonz)
   - `v1.7.1` ebuild
 - [net-vpn/pan-globalprotect-okta](https://github.com/arthepsy/pan-globalprotect-okta)

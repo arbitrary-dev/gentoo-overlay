@@ -1,0 +1,33 @@
+Check OGG support after trying to dynamically load it.
+
+--- a/src/sfx.cpp
++++ b/src/sfx.cpp
+@@ -806,12 +806,10 @@ void sfx_init()
+       else
+ 	log_info("Audio music decoder: %s", Mix_GetMusicDecoder(i));
+     }
+-    if (!ogg_available)
+-      log_error("Audio music decoder: no Ogg support");
+ 
+-    int available;
+     /* Don't mess with loading/unloading too much */
+     /*
++    int available;
+     available = Mix_Init(MIX_INIT_MOD);     // libmikmod
+     log_info("Audio dynload: MOD        %s", available ? "ok" : Mix_GetError());
+     available = Mix_Init(MIX_INIT_MODPLUG); // libmodplug
+@@ -824,10 +822,10 @@ void sfx_init()
+     log_info("Audio dynload: MP3        %s", available ? "ok" : Mix_GetError());
+     Mix_Quit();
+     */
+-    available = Mix_Init(MIX_INIT_OGG);
+-    log_info("Audio dynload: OGG: %s", available ? "ok" : Mix_GetError());
+-    if (!available)
+-      log_error("Audio dynload: no Ogg support");
++    ogg_available = Mix_Init(MIX_INIT_OGG);
++    log_info("Audio dynload OGG: %s", ogg_available ? "ok" : Mix_GetError());
++    if (!ogg_available)
++      log_error("Audio music decoder: no Ogg support");
+ 
+     // TODO: test MOD support (btw does mikmod and modplug conflict?)
+   }

@@ -1,0 +1,20 @@
+Bug-URL: https://bugs.launchpad.net/ubuntu/+source/freedink/+bug/2009960
+
+--- a/src/sfx.cpp
++++ b/src/sfx.cpp
+@@ -931,6 +931,7 @@ static void CleanupChannel(int channel)
+      the Chunk was loaded via Mix_QuickLoad_RAW() - which is a good
+      thing since fake_buf is shared by all Chunks. We still need to
+      free the Chunk when it's done playing. */
++  /* FIXME https://bugs.launchpad.net/ubuntu/+source/freedink/+bug/2009960
+   Mix_Chunk *chunk = Mix_GetChunk(channel);
+   if (chunk == NULL)
+     {
+@@ -938,6 +939,7 @@ static void CleanupChannel(int channel)
+       exit(1);
+     }
+   Mix_FreeChunk(chunk);
++  */
+   channelinfo[channel].finished = 0;
+   channelinfo[channel].looping = 0;
+   channelinfo[channel].cur_sound = -1;

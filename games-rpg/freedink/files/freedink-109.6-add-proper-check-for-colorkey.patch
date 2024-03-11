@@ -1,0 +1,54 @@
+This is to avoid spamming debug logs with:
+DEBUG: Surface doesn't have a colorkey
+
+--- a/src/IOGfxDisplayGL2.cpp
++++ b/src/IOGfxDisplayGL2.cpp
+@@ -580,9 +580,10 @@ IOGfxSurface* IOGfxDisplayGL2::upload(SDL_Surface* surf) {
+ 	// Save transparency color
+ 	SDL_Color colorkey = {0,0,0, 0};
+-	Uint32 key;
+-	if (SDL_GetColorKey(surf, &key) == -1) {
++	if (!SDL_HasColorKey(surf)) {
+ 		colorkey.a = SDL_ALPHA_OPAQUE; // no colorkey
+ 	} else {
++ 	Uint32 key;
++		SDL_GetColorKey(surf, &key);
+ 		if (truecolor)
+ 			SDL_GetRGBA(key, surf->format, &colorkey.r, &colorkey.g, &colorkey.b, &colorkey.a);
+ 		else
+
+--- a/src/IOGfxSurfaceSW.cpp
++++ b/src/IOGfxSurfaceSW.cpp
+@@ -66,9 +66,12 @@ int gfx_blit_stretch(SDL_Surface *src_surf, const SDL_Rect *src_rect_opt,
+ 	 report submitted to the author: SDL_gfx adds transparency to
+ 	 non-transparent surfaces) */
+ 		Uint8 r, g, b, a;
+-		Uint32 colorkey;
+-		int colorkey_enabled = (SDL_GetColorKey(src_surf, &colorkey) != -1);
+-		SDL_GetRGBA(colorkey, src_surf->format, &r, &g, &b, &a);
++		int colorkey_enabled = SDL_HasColorKey(src_surf);
++		if (colorkey_enabled) {
++				Uint32 colorkey;
++				SDL_GetColorKey(src_surf, &colorkey);
++				SDL_GetRGBA(colorkey, src_surf->format, &r, &g, &b, &a);
++		}
+ 
+ 		SDL_SetColorKey(scaled, colorkey_enabled,
+ 				SDL_MapRGBA(scaled->format, r, g, b, a));
+
+--- a/src/ImageLoader.cpp
++++ b/src/ImageLoader.cpp
+@@ -53,9 +53,11 @@ SDL_Surface* ImageLoader::convertToPaletteFormat(SDL_Surface* image) {
+ 	SDL_Surface *converted = SDL_CreateRGBSurface(0, image->w, image->h, 8, 0,0,0,0);
+ 	SDL_SetPaletteColors(converted->format->palette, GFX_ref_pal, 0, 256);
+ 	SDL_BlitSurface(image, NULL, converted, NULL);
+-	Uint32 key;
+-	if (SDL_GetColorKey(image, &key) == 0)
++	if (SDL_HasColorKey(image)) {
++		Uint32 key;
++		SDL_GetColorKey(image, &key);
+ 		SDL_SetColorKey(converted, SDL_TRUE, key);
++  }
+ 	SDL_FreeSurface(image);
+ 	/* Disable palette conversion in future blits */
+ 	SDL_SetPaletteColors(converted->format->palette, blitFormat->format->palette->colors, 0, 256);
