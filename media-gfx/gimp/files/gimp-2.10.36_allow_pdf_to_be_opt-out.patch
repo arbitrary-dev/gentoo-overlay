@@ -1,0 +1,78 @@
+Because I don't like unnecessary dependencies!
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -2057,18 +2057,33 @@ AM_CONDITIONAL(BUILD_PRINT, test "x$enable_print" = xyes)
+ # Check for libpoppler
+ ######################
+ 
+-# PDF import support is a granted feature.
+-PKG_CHECK_MODULES(POPPLER, [poppler-glib >= poppler_required_version],,
+-                  [add_deps_error([poppler-glib >= poppler_required_version])])
+-# All modern distributions have at least this version and CJK/Cyrillic
+-# support should not be considered as "second-zone citizen".
+-PKG_CHECK_MODULES(POPPLER_DATA, [poppler-data >= poppler_data_required_version],,
+-                  [add_deps_error([poppler-data >= poppler_data_required_version])])
+-
+-# MIME_TYPES is for the formats we can open as used for instance in the
+-# desktop file. Even if cairo-pdf (used for PDF export) is not
+-# installed, the mime-type list should contain application/pdf.
+-MIME_TYPES="$MIME_TYPES;application/pdf"
++# PDF import support is a -granted- (Ha Ha, not anymore!) feature.
++AC_ARG_WITH(poppler,[  --without-poppler       build without pdf import support (poppler)])
++have_poppler=no
++if test "x$with_poppler" != xno; then
++  have_poppler=yes
++  PKG_CHECK_MODULES(POPPLER, [poppler-glib >= poppler_required_version],
++    FILE_PDF_LOAD='file-pdf-load$(EXEEXT)',
++    [
++      add_deps_error([poppler-glib >= poppler_required_version])
++      have_poppler="no (poppler not found)"
++    ])
++  # All modern distributions have at least this version and CJK/Cyrillic
++  # support should not be considered as "second-zone citizen".
++  PKG_CHECK_MODULES(POPPLER_DATA, [poppler-data >= poppler_data_required_version],
++    ,
++    [
++      add_deps_error([poppler-data >= poppler_data_required_version])
++      have_poppler="no (poppler-data not found)"
++    ])
++
++  # MIME_TYPES is for the formats we can open as used for instance in the
++  # desktop file. Even if cairo-pdf (used for PDF export) is not
++  # installed, the mime-type list -should- (no, it shouldn't :P) contain application/pdf.
++  MIME_TYPES="$MIME_TYPES;application/pdf"
++else
++   have_poppler="no (poppler support disabled)"
++fi
+ 
+ #####################
+ # Check for cairo-pdf
+@@ -3203,6 +3218,7 @@ Optional Plug-Ins:
+   WebP:                      $have_webp
+   HEIC:                      import: $can_import_heic - export: $can_export_heic [[profile support: $have_heif_profile_support]]
+   AVIF:                      import: $can_import_avif - export: $can_export_avif
++  PDF (import):              $have_poppler
+   PDF (export):              $have_cairo_pdf
+   Print:                     $enable_print
+   Python 2:                  $enable_python
+
+--- a/plug-ins/common/Makefile.am
++++ b/plug-ins/common/Makefile.am
+@@ -182,7 +182,7 @@ file_jpegxl_libexec_PROGRAMS = $(FILE_JPEGXL)
+ file_mng_libexec_PROGRAMS = $(FILE_MNG)
+ file_pat_libexec_PROGRAMS = file-pat
+ file_pcx_libexec_PROGRAMS = file-pcx
+-file_pdf_load_libexec_PROGRAMS = file-pdf-load
++file_pdf_load_libexec_PROGRAMS = $(FILE_PDF_LOAD)
+ file_pdf_save_libexec_PROGRAMS = $(FILE_PDF_SAVE)
+ file_pix_libexec_PROGRAMS = file-pix
+ file_png_libexec_PROGRAMS = file-png
+@@ -236,6 +236,7 @@ EXTRA_PROGRAMS = \
+ 	file-jp2-load \
+ 	file-jpegxl \
+ 	file-mng \
++	file-pdf-load \
+ 	file-pdf-save \
+ 	file-ps \
+ 	file-wmf \
