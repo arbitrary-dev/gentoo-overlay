@@ -2,14 +2,14 @@
 
 ## Packages
 
-- [games-rpg/freedink](https://www.gnu.org/software/freedink)
-  - added workaround for [segfault](https://bugs.launchpad.net/ubuntu/+source/freedink/+bug/2009960)
-  - fixed misleading ["ERROR: Audio music decoder: no Ogg support"](https://bugzilla.redhat.com/show_bug.cgi?id=1782557) logging
-- [media-gfx/gimp](https://gimp.org)
-  - added support for `pdf` opt-out USE-flag
-- [media-gfx/opentoonz](https://github.com/opentoonz/opentoonz)
+- [games-rpg/freedink](games-rpg/freedink)
+  - workaround for [segfault](https://bugs.launchpad.net/ubuntu/+source/freedink/+bug/2009960)
+  - fix for ["ERROR: Audio music decoder: no Ogg support"](https://bugzilla.redhat.com/show_bug.cgi?id=1782557)
+- [media-gfx/gimp](media-gfx/gimp)
+  - `pdf` opt-out USE-flag
+- [media-gfx/opentoonz](media-gfx/opentoonz)
   - `v1.7.1` ebuild
-- [net-vpn/pan-globalprotect-okta](https://github.com/arthepsy/pan-globalprotect-okta)
+- [net-vpn/pan-globalprotect-okta](net-vpn/pan-globalprotect-okta)
 
 ## How to add?
 
