@@ -18,6 +18,8 @@ IUSE="aalib alsa aqua debug doc gnome heif jpeg2k jpegxl mng openexr +pdf postsc
 
 RESTRICT="!test? ( test )"
 
+# pdf USE-flag doesn't encompass cairo-pdf as it is already included
+# in x11-libs/cairo by default
 DEPEND="
 	>=app-accessibility/at-spi2-core-2.46.0
 	>=dev-libs/glib-2.56.2:2
@@ -55,7 +57,6 @@ DEPEND="
 	pdf? (
 		>=app-text/poppler-0.50[cairo]
 		>=app-text/poppler-data-0.4.7
-		# cairo-pdf is already included in x11-libs/cairo by default
 	)
 	postscript? ( app-text/ghostscript-gpl:= )
 	udev? ( dev-libs/libgudev:= )
