@@ -1,0 +1,46 @@
+diff --git a/configure.ac b/configure.ac
+index 9c91c99..1bf66f2 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -192,13 +192,28 @@ fi
+ AM_CONDITIONAL(GOFFICE_WITH_LASEM, $goffice_with_lasem)
+ 
+ dnl ***************************
+-dnl Should we use libspectre ?
++dnl Should we use libspectre ? No[t obligatory]!
+ dnl ***************************
+ 
+ goffice_with_eps=false
+ LIBGS_REQUIRED="9.06"
+ LIBSPECTRE_REQUIRED="0.2.6"
+ 
++AC_ARG_ENABLE(
++    eps,
++    AS_HELP_STRING(
++        [--enable-eps],
++        [Enable support for embedded EPS]
++    ),,
++    [enable_eps=no]
++)
++
++AS_CASE([$enable_eps],
++[no], [
++    echo "Support for embedded EPS is disabled"
++],
++[yes],[
++
+ AC_CHECK_LIB(gs, gsapi_new_instance, have_libgs=yes, have_libgs=no)
+ if test "x$have_libgs" = "xyes"; then
+     LIB_GS="-lgs"
+@@ -242,6 +257,11 @@ if test "x$goffice_with_eps" = "xtrue" ; then
+ 	EXTRA_DEPS="$EXTRA_DEPS libspectre"
+ fi
+ 
++],
++[
++    AC_MSG_ERROR([invalid argument passed to --enable-eps, should be one of @<:@no/yes@:>@])
++])
++
+ AM_CONDITIONAL(GOFFICE_WITH_EPS, $goffice_with_eps)
+ 
+ dnl *****************************

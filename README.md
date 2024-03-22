@@ -10,6 +10,8 @@
 - [media-gfx/opentoonz](media-gfx/opentoonz)
   - `v1.7.1` ebuild
 - [net-vpn/pan-globalprotect-okta](net-vpn/pan-globalprotect-okta)
+- [x11-libs/goffice](x11-libs/goffice)
+  - `eps` opt-out USE-flag
 
 ## How to add?
 
