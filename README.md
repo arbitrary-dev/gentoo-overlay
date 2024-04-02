@@ -2,6 +2,8 @@
 
 ## Packages
 
+- [dev-util/pmbootstrap](dev-util/pmbootstrap)
+  - `v2.2.1` ebuild
 - [games-rpg/freedink](games-rpg/freedink)
   - workaround for [segfault](https://bugs.launchpad.net/ubuntu/+source/freedink/+bug/2009960)
   - fix for ["ERROR: Audio music decoder: no Ogg support"](https://bugzilla.redhat.com/show_bug.cgi?id=1782557)
