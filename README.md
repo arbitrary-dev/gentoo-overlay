@@ -5,6 +5,8 @@
 - [app-text/pandoc-cli](app-text/pandoc-cli)
   - `v3.1.13` ebuild
   - may [require](https://github.com/gentoo-haskell/gentoo-haskell/issues/1469) `dev-haskell/pandoc` re-emerge
+- [dev-haskell/haskell-language-server](dev-haskell/haskell-language-server)
+  - `v2.7.0.0` ebuild
 - [dev-util/pmbootstrap](dev-util/pmbootstrap)
   - `v2.2.1` ebuild
 - [games-rpg/freedink](games-rpg/freedink)

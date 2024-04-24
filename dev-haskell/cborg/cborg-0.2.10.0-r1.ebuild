@@ -16,15 +16,6 @@ SLOT="0/${PV}"
 KEYWORDS="~amd64"
 IUSE="+optimize-gmp"
 
-CABAL_CHDEPS=(
-	'base                    >= 4.11    && < 4.19' 'base >=4.11'
-	'bytestring              >= 0.10.4  && < 0.12' 'bytestring >=0.10.4'
-	'ghc-prim                >= 0.3.1.0 && < 0.11' 'ghc-prim >=0.3.1.0'
-	'primitive               >= 0.5     && < 0.9' 'primitive >=0.5'
-	'deepseq                 >= 1.0     && < 1.5' 'deepseq >=1.0'
-	'text                    >= 1.1     && < 1.3 || >= 2.0 && <2.1' 'text >=2.0'
-)
-
 RDEPEND=">=dev-haskell/half-0.2.2.3:=[profile?] <dev-haskell/half-0.4:=[profile?]
 	>=dev-haskell/primitive-0.5:=[profile?] <dev-haskell/primitive-0.10:=[profile?]
 	>=dev-lang/ghc-9.0.2:=

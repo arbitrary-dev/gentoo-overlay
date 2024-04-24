@@ -1,0 +1,31 @@
+diff --git a/haskell-language-server.cabal b/haskell-language-server.cabal
+index b140955..b3fe29f 100644
+--- a/haskell-language-server.cabal
++++ b/haskell-language-server.cabal
+@@ -667,7 +667,7 @@ common stan
+ 
+ library hls-stan-plugin
+   import:           defaults, pedantic, warnings
+-  if (impl(ghc > 8.8.1) && impl(ghc <= 9.2.3) || impl(ghc >= 9.4.0) && impl(ghc < 9.10.0))
++  if flag(stan) && ((impl(ghc > 8.8.1) && impl(ghc <= 9.2.3) || impl(ghc >= 9.4.0) && impl(ghc < 9.10.0)))
+     buildable: True
+   else
+     buildable: False
+@@ -1305,6 +1305,8 @@ common fourmolu
+     cpp-options: -Dhls_fourmolu
+ 
+ library hls-fourmolu-plugin
++  if !flag(fourmolu)
++    buildable: False
+   import:           defaults, pedantic, warnings
+   exposed-modules:  Ide.Plugin.Fourmolu
+   hs-source-dirs:   plugins/hls-fourmolu-plugin/src
+@@ -1354,6 +1356,8 @@ common ormolu
+     cpp-options: -Dhls_ormolu
+ 
+ library hls-ormolu-plugin
++  if !flag(ormolu)
++    buildable: False
+   import:           defaults, pedantic, warnings
+   exposed-modules:  Ide.Plugin.Ormolu
+   hs-source-dirs:   plugins/hls-ormolu-plugin/src
