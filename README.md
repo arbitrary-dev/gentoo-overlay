@@ -5,6 +5,8 @@
 - [app-text/pandoc-cli](app-text/pandoc-cli)
   - `v3.1.13` ebuild
   - may [require](https://github.com/gentoo-haskell/gentoo-haskell/issues/1469) `dev-haskell/pandoc` re-emerge
+- [dev-haskell/esqueleto](dev-haskell/esqueleto)
+  - `v3.5.11.2` ebuild
 - [dev-haskell/haskell-language-server](dev-haskell/haskell-language-server)
   - `v2.7.0.0` ebuild
 - [dev-util/pmbootstrap](dev-util/pmbootstrap)
