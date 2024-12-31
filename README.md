@@ -11,9 +11,14 @@
   - `v2.7.0.0` ebuild
 - [dev-util/pmbootstrap](dev-util/pmbootstrap)
   - `v2.2.1` ebuild
+- [games-engines/fheroes2](games-engines/fheroes2)
+  - `v1.1.5` ebuild
+  - `x86` support
 - [games-rpg/freedink](games-rpg/freedink)
   - workaround for [segfault](https://bugs.launchpad.net/ubuntu/+source/freedink/+bug/2009960)
   - fix for ["ERROR: Audio music decoder: no Ogg support"](https://bugzilla.redhat.com/show_bug.cgi?id=1782557)
+- [games-strategy/homm2-gold-gog](games-strategy/homm2-gold-gog)
+  - `x86` support
 - [media-gfx/gimp](media-gfx/gimp)
   - `pdf` opt-out USE-flag
 - [media-gfx/opentoonz](media-gfx/opentoonz)
