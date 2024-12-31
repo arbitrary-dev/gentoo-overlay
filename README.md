@@ -11,6 +11,8 @@
   - `v2.7.0.0` ebuild
 - [dev-util/pmbootstrap](dev-util/pmbootstrap)
   - `v2.2.1` ebuild
+- [dev-util/intel\_clc](dev-util/intel_clc)
+  - `llvm:19` support
 - [games-engines/fheroes2](games-engines/fheroes2)
   - `v1.1.5` ebuild
   - `x86` support
