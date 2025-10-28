@@ -103,7 +103,7 @@ index a67132ba6bd..d04412757bc 100644
  #include <glib/poppler-features.h>
  #include <poppler/UTF.h>
  
-+#if POPPLER_CHECK_VERSION(25, 6, 0)
++#if POPPLER_CHECK_VERSION(25, 9, 1)
 +#define _POPPLER_DECLARE_TRANSFER_FUNCTION_VECTOR(name) std::vector<std::unique_ptr<Function>> name(4)
 +#define _POPPLER_DELETE_TRANSFER_FUNCTION(name) name.reset()
 +#define _POPPLER_GET_TRANSFER_FUNCTION_POINTER(name) name.get()

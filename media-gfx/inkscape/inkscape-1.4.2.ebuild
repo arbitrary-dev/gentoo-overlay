@@ -27,7 +27,7 @@ S="${WORKDIR}/${MY_P}"
 
 LICENSE="GPL-2 LGPL-2.1"
 SLOT="0"
-IUSE="cdr dia exif graphicsmagick imagemagick inkjar jpeg openmp postscript readline sourceview spell svg2 test visio wpg X"
+IUSE="cdr dia exif graphicsmagick imagemagick inkjar jpeg openmp +poppler postscript readline sourceview spell svg2 test visio wpg X"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 # Lots of test failures which need investigating, bug #871621
 RESTRICT="!test? ( test ) test"
@@ -113,7 +113,7 @@ DEPEND="${COMMON_DEPEND}
 "
 
 PATCHES=(
-	"${FILESDIR}"/${P}-poppler-25.06.0.patch # bug 957137, pending for 1.4.3
+	"${FILESDIR}"/${P}-poppler-25.09.1.patch # bug 957137, pending for 1.4.3
 )
 
 pkg_pretend() {
@@ -148,8 +148,8 @@ src_configure() {
 	local mycmakeargs=(
 		# -DWITH_LPETOOL   # Compile with LPE Tool and experimental LPEs enabled
 		-DWITH_NLS=ON
-		-DENABLE_POPPLER=ON
-		-DENABLE_POPPLER_CAIRO=ON
+		-DENABLE_POPPLER=$(usex poppler)
+		-DENABLE_POPPLER_CAIRO=$(usex poppler)
 		-DWITH_PROFILING=OFF
 		-DWITH_INTERNAL_2GEOM=ON
 		-DBUILD_TESTING=$(usex test)
