@@ -23,8 +23,6 @@
   - `x86` support
 - [media-gfx/gimp](media-gfx/gimp)
   - `pdf` opt-out USE-flag
-- [media-gfx/inkscape](media-gfx/inkscape)
-  - `v1.4.2` ebuild
 - [media-gfx/opentoonz](media-gfx/opentoonz)
   - `v1.7.1` ebuild
 - [net-vpn/pan-globalprotect-okta](net-vpn/pan-globalprotect-okta)
