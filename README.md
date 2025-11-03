@@ -9,8 +9,6 @@
   - `v3.5.11.2` ebuild
 - [dev-haskell/haskell-language-server](dev-haskell/haskell-language-server)
   - `v2.7.0.0` ebuild
-- [dev-util/pmbootstrap](dev-util/pmbootstrap)
-  - `v2.2.1` ebuild
 - [dev-util/intel\_clc](dev-util/intel_clc)
   - `llvm:19` support
 - [games-engines/fheroes2](games-engines/fheroes2)
@@ -25,7 +23,6 @@
   - `pdf` opt-out USE-flag
 - [media-gfx/opentoonz](media-gfx/opentoonz)
   - `v1.7.1` ebuild
-- [net-vpn/pan-globalprotect-okta](net-vpn/pan-globalprotect-okta)
 - [x11-libs/goffice](x11-libs/goffice)
   - `eps` opt-out USE-flag
 
