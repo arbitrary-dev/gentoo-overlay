@@ -7,7 +7,9 @@ inherit cmake
 
 DESCRIPTION="Hyprland graphics / resource utilities"
 HOMEPAGE="https://github.com/hyprwm/hyprgraphics"
-SRC_URI="https://github.com/hyprwm/${PN}/archive/v${PV}.tar.gz -> ${P}.gh.tar.gz"
+
+inherit git-r3
+EGIT_REPO_URI="https://github.com/hyprwm/${PN^}.git"
 
 LICENSE="BSD"
 SLOT="0"
